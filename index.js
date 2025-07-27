@@ -12,11 +12,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin:
-      "https://4b702fb8-d4ff-4765-a2c4-7da2947bd7dd-00-3d5reuka2o4af.worf.replit.dev/",
-    credentials: true,
-  }),
+    origin:"https://4b702fb8-d4ff-4765-a2c4-7da2947bd7dd-00-3d5reuka2o4af.worf.replit.dev/"
+  })
 );
+
+app.get("/",(req,res)=>{
+  res.send("home page")
+})
 
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoute);
