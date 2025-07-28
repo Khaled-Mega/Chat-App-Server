@@ -2,19 +2,20 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-const app = express();
-
 import connectDB from "./db/connectDB.js";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoute from "./routes/message.route.js";
 
+const app = express();
+
+
+
 app.use(express.json());
+app.use(cors({
+  origin:"https://crispy-giggle-pj654r95vx542r4pg-5173.app.github.dev",
+  credentials:true
+}))
 app.use(cookieParser());
-app.use(
-  cors({
-    origin:"https://4b702fb8-d4ff-4765-a2c4-7da2947bd7dd-00-3d5reuka2o4af.worf.replit.dev/"
-  })
-);
 
 app.get("/",(req,res)=>{
   res.send("home page")
